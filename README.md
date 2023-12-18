@@ -23,5 +23,20 @@ Then, I implemented the connection BLE between my nodered and the Arduino and Af
 
 For the Arduino part, I took a code generated for the BLE communication. I implemented that on my IA code. Here's some pictures of the implementation : 
 
-![image](https://github.com/SofianeBNA/Project_B/assets/148438130/b113ae21-baff-4a54-8712-18a30b3765b1)
+
+
+
+
+
+Let's move on the nodered part. I began with a simple flow to test the BLE connection : 
+
+![image](https://github.com/SofianeBNA/Project_B/assets/148438130/a549e0be-cb65-4471-9af5-8cec0410c50e)
+
+
+I have connected now the Nodered with the Arduino. 
+
+
+I suceeded to communicate between the Arduino and the Nodered but now I need to transmit the data correctly and count them into the nodered. 
+
+
 
