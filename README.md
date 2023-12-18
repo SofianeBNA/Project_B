@@ -17,3 +17,11 @@ it seems that's something talking about esp32 and I'm not using that device. I s
 
 
 ![Edge impulse image](https://github.com/SofianeBNA/Project_B/assets/148438130/7c1a5e56-7197-4ca8-955a-1c46a4bb117d)
+
+
+Then, I implemented the connection BLE between my nodered and the Arduino and After I will work on the data transmission. 
+
+For the Arduino part, I took a code generated for the BLE communication. I implemented that on my IA code. Here's some pictures of the implementation : 
+
+![image](https://github.com/SofianeBNA/Project_B/assets/148438130/b113ae21-baff-4a54-8712-18a30b3765b1)
+
