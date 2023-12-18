@@ -21,7 +21,17 @@ it seems that's something talking about esp32 and I'm not using that device. I s
 
 Then, I implemented the connection BLE between my nodered and the Arduino and After I will work on the data transmission. 
 
-For the Arduino part, I took a code generated for the BLE communication. I implemented that on my IA code. Here's some pictures of the implementation : 
+For the Arduino part, I took a code generated for the BLE communication. I implemented that on my IA code. Here's some pictures of the implementation :
+
+ For the setup : 
+ ![image](https://github.com/SofianeBNA/Project_B/assets/148438130/94f40e7b-c062-45c8-8be9-d4fdf0c90951)
+
+
+For the loop : 
+![image](https://github.com/SofianeBNA/Project_B/assets/148438130/13bba41b-4a74-41cc-9cdd-eaf08bc47063)
+
+I defined my device as Arduino33BLE. I started by just transmit something et see if I will se that ah the end with nodered.
+
 
 
 
