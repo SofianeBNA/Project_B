@@ -21,6 +21,15 @@
 #include <stdint.h>
 #include <stdlib.h>
 
+#include <ArduinoBLE.h>
+
+ // Bluetooth® Low Energy Battery Service
+BLEService batteryService("180F");
+
+// Bluetooth® Low Energy Battery Level Characteristic
+BLEUnsignedCharCharacteristic batteryLevelChar("2A19",  // standard 16-bit characteristic UUID
+    BLERead | BLENotify); // remote clients will be able to get notifications if this characteristic changes
+
 /* Constant variables ------------------------------------------------------- */
 #define EI_CAMERA_RAW_FRAME_BUFFER_COLS     160
 #define EI_CAMERA_RAW_FRAME_BUFFER_ROWS     120
@@ -140,6 +149,17 @@ void setup()
     ei_printf("\tImage resolution: %dx%d\n", EI_CLASSIFIER_INPUT_WIDTH, EI_CLASSIFIER_INPUT_HEIGHT);
     ei_printf("\tFrame size: %d\n", EI_CLASSIFIER_DSP_INPUT_FRAME_SIZE);
     ei_printf("\tNo. of classes: %d\n", sizeof(ei_classifier_inferencing_categories) / sizeof(ei_classifier_inferencing_categories[0]));
+
+    Serial.begin(9600);    // initialize serial communication
+  while (!Serial);
+
+  pinMode(LED_BUILTIN, OUTPUT); // initialize the built-in LED pin to indicate when a central is connected
+
+  // begin initialization
+  if (!BLE.begin()) {
+    Serial.println("starting BLE failed!");
+
+    
 }
 
 /**
@@ -241,6 +261,19 @@ void loop()
         if (snapshot_mem) ei_free(snapshot_mem);
     }
     ei_camera_deinit();
+  BLE.setLocalName("Arduino33BLE");
+  BLE.setAdvertisedService(Transmitdata); // add the service UUID
+ 
+
+  /* Start advertising Bluetooth® Low Energy.  It will start continuously transmitting Bluetooth® Low Energy
+     advertising packets and will be visible to remote Bluetooth® Low Energy central devices
+     until it receives a new connection */
+
+  // start advertising
+  BLE.advertise();
+
+  Serial.println("Bluetooth® device active, waiting for connections...");
+
 }
 
 /**
